@@ -23,61 +23,95 @@ import org.omnetpp.queueing.Source;
 
 network Baseline
 {
-    @display("bgb=699,472");
+    @display("bgb=896,503");
     submodules:
         source: Source {
-            @display("p=43,219");
+            @display("p=31,271");
         }
-        CheckinQueue01: PassiveQueue {
-            @display("p=127,75");
+        CheckinQueue1: PassiveQueue {
+            @display("p=315,39");
         }
-        CheckinServer01: Server {
-            @display("p=251,75");
+        CheckinServer1: Server {
+            @display("p=429,39");
         }
-        CheckinServer02: Server {
-            @display("p=251,153");
+        CheckinServer2: Server {
+            @display("p=429,117");
         }
-        CheckinQueue02: PassiveQueue {
-            @display("p=127,380");
+        CheckinQueue5: PassiveQueue {
+            @display("p=315,357");
         }
-        CheckinServer03: Server {
-            @display("p=251,288");
+        CheckinServer5: Server {
+            @display("p=429,357");
         }
-        CheckinServer04: Server {
-            @display("p=251,380");
+        CheckinServer6: Server {
+            @display("p=429,449");
         }
-        SecurityQueue01: PassiveQueue {
-            @display("p=395,153");
+        SecurityQueue1: PassiveQueue {
+            @display("p=565,159");
         }
-        SecurityServer01: Server {
-            @display("p=527,153");
+        SecurityServer1: Server {
+            @display("p=715,159");
         }
-        SecurityServer02: Server {
-            @display("p=527,288");
+        SecurityServer2: Server {
+            @display("p=715,271");
         }
         sink: Sink {
-            @display("p=635,219");
+            @display("p=841,271");
         }
         CheckinRouter: Router {
-            @display("p=127,219");
+            @display("p=120,271");
         }
-        SecurityQueue02: PassiveQueue {
-            @display("p=395,288");
+        SecurityQueue2: PassiveQueue {
+            @display("p=565,271");
+        }
+        CheckinServer3: Server {
+            @display("p=429,198");
+        }
+        CheckinServer4: Server {
+            @display("p=429,271");
+        }
+        SecurityQueue3: PassiveQueue {
+            @display("p=565,396");
+        }
+        SecurityServer3: Server {
+            @display("p=715,396");
+        }
+        CheckinQueue4: PassiveQueue {
+            @display("p=315,271");
+        }
+        CheckinQueue3: PassiveQueue {
+            @display("p=315,198");
+        }
+        CheckinQueue2: PassiveQueue {
+            @display("p=315,117");
+        }
+        CheckinQueue6: PassiveQueue {
+            @display("p=315,449");
         }
     connections:
         source.out --> CheckinRouter.in++;
-        CheckinRouter.out++ --> CheckinQueue01.in++;
-        CheckinRouter.out++ --> CheckinQueue02.in++;
-        CheckinQueue01.out++ --> CheckinServer01.in++;
-        CheckinQueue01.out++ --> CheckinServer02.in++;
-        CheckinQueue02.out++ --> CheckinServer03.in++;
-        CheckinQueue02.out++ --> CheckinServer04.in++;
-        CheckinServer01.out --> SecurityQueue01.in++;
-        CheckinServer02.out --> SecurityQueue01.in++;
-        SecurityQueue01.out++ --> SecurityServer01.in++;
-        SecurityServer01.out --> sink.in++;
-        SecurityServer02.out --> sink.in++;
-        CheckinServer03.out --> SecurityQueue02.in++;
-        CheckinServer04.out --> SecurityQueue02.in++;
-        SecurityQueue02.out++ --> SecurityServer02.in++;
+        CheckinRouter.out++ --> CheckinQueue5.in++;
+        SecurityQueue1.out++ --> SecurityServer1.in++;
+        SecurityServer1.out --> sink.in++;
+        SecurityServer2.out --> sink.in++;
+        SecurityQueue2.out++ --> SecurityServer2.in++;
+        SecurityQueue3.out++ --> SecurityServer3.in++;
+        SecurityServer3.out --> sink.in++;
+        CheckinRouter.out++ --> CheckinQueue4.in++;
+        CheckinRouter.out++ --> CheckinQueue3.in++;
+        CheckinRouter.out++ --> CheckinQueue2.in++;
+        CheckinRouter.out++ --> CheckinQueue1.in++;
+        CheckinQueue1.out++ --> CheckinServer1.in++;
+        CheckinQueue2.out++ --> CheckinServer2.in++;
+        CheckinQueue3.out++ --> CheckinServer3.in++;
+        CheckinQueue4.out++ --> CheckinServer4.in++;
+        CheckinRouter.out++ --> CheckinQueue6.in++;
+        CheckinQueue6.out++ --> CheckinServer6.in++;
+        CheckinQueue5.out++ --> CheckinServer5.in++;
+        CheckinServer1.out --> SecurityQueue1.in++;
+        CheckinServer2.out --> SecurityQueue1.in++;
+        CheckinServer3.out --> SecurityQueue2.in++;
+        CheckinServer4.out --> SecurityQueue2.in++;
+        CheckinServer5.out --> SecurityQueue3.in++;
+        CheckinServer6.out --> SecurityQueue3.in++;
 }
