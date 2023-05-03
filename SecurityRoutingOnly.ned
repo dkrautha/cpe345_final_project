@@ -111,13 +111,13 @@ network SecurityRoutingOnly
         CheckinRouter.out++ --> CheckinQueue6.in++;
         CheckinQueue6.out++ --> CheckinServer6.in++;
         CheckinQueue5.out++ --> CheckinServer5.in++;
-        SecurityRouter.out++ --> SecurityQueue1.in++;
-        SecurityRouter.out++ --> SecurityQueue2.in++;
-        SecurityRouter.out++ --> SecurityQueue3.in++;
         CheckinServer1.out --> SecurityRouter.in++;
         CheckinServer2.out --> SecurityRouter.in++;
         CheckinServer3.out --> SecurityRouter.in++;
         CheckinServer4.out --> SecurityRouter.in++;
         CheckinServer5.out --> SecurityRouter.in++;
         CheckinServer6.out --> SecurityRouter.in++;
+        SecurityRouter.out++ --> SecurityQueue1.in++;
+        SecurityRouter.out++ --> SecurityQueue2.in++;
+        SecurityRouter.out++ --> SecurityQueue3.in++;
 }
